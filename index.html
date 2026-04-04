@@ -40,7 +40,9 @@
               </span>
               <span class="link-block link-block-">
                 <a class="external-link button is-small is-rounded is-link"
-                  style="background:#24292e;border-color:#24292e;font-size:0.8rem;font-weight:500;" href="">
+                  style="background:#24292e;border-color:#24292e;font-size:0.8rem;font-weight:500;"
+                  href="./static/pdfs/celebgait_2026_mm_supplementary_material.pdf"
+                  download="celebgait_2026_mm_supplementary_material.pdf">
                   <span class="icon"><i class="fas fa-file-archive"></i></span>
                   <span>Supplementary Material</span>
                 </a>
@@ -66,23 +68,7 @@
         <div class="column is-two-thirds">
           <div class="content has-text-justified">
             <h3>Abstract</h3>
-            <p>Gait recognition identifies individuals through their walking patterns and body shape, offering
-              advantages such as long-range and non-contact sensing. However, existing gait datasets are mostly
-              collected in controlled environments and rarely reflect the clothing variations and complex scene changes
-              encountered in real-world applications. To facilitate research under more practical settings, we present
-              CelebGait, an in-the-wild clothing-changing gait benchmark containing 4,500 identities and 21,299
-              sequences, with substantial variations in clothing, scene, viewpoint, and motion dynamics. Extensive
-              evaluations show that the performance of existing gait recognition methods drops notably on CelebGait,
-              highlighting the difficulty of this benchmark. To provide a competitive yet deployment-friendly baseline
-              for CelebGait, we further introduce PoseFreeGait. The proposed baseline exploits both silhouette and pose
-              heatmap modalities during training, while requiring only silhouette inputs at inference time.
-              Specifically, PoseFreeGait first learns a bimodal teacher to capture complementary gait cues, then trains
-              a silhouette-to-pose generator in the latent feature space, and finally performs joint fine-tuning to
-              transfer pose-aware knowledge into a silhouette-driven inference pipeline. In this way, the model can
-              benefit from multimodal supervision during training without relying on pose inputs during testing.
-              Experimental results on CelebGait show that PoseFreeGait provides a strong and practical baseline for
-              clothing-changing gait recognition in unconstrained environments. The dataset and code will be released
-              upon acceptance.</p>
+            <p>Gait recognition identifies individuals through their walking patterns and body shape, offering advantages such as long-range and non-contact sensing. However, existing gait datasets are mostly collected in controlled environments and rarely reflect the clothing variations and complex scene changes encountered in real-world applications. To facilitate research under more practical settings, we present <strong>CelebGait</strong>, a large-scale, in-the-wild clothing-changing gait benchmark containing <strong>4,500 identities</strong> and <strong>21,299 sequences</strong>, with substantial variations in clothing, scene, viewpoint, and motion dynamics. Extensive evaluations show that the performance of existing gait recognition methods drops notably on <strong>CelebGait</strong>, highlighting the critical bottleneck of clothing interference in unconstrained environments. To tackle the specific challenges introduced by <strong>CelebGait</strong>, we further establish <strong>GaitUniFormer</strong> as a tailored multimodal baseline. Instead of treating modalities independently, <strong>GaitUniFormer</strong> employs a unified transformer-style architecture to achieve fine-grained cross-modal interaction between silhouettes and pose heatmaps. By explicitly anchoring silhouette-based appearance features with stable pose-aware structural dynamics, this baseline effectively mitigates the severe visual interference caused by diverse clothing. Experimental results on <strong>CelebGait</strong> show that <strong>GaitUniFormer</strong> provides a robust reference among existing silhouette-based, pose-based, and multimodal approaches, demonstrating the necessity of deep multimodal integration for real-world clothing-changing gait recognition.</p>
           </div>
         </div>
       </div>
@@ -127,6 +113,21 @@
             <div class="carousel-meta">
               <span id="celebgait-carousel-counter">1 / 14</span>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="columns is-centered">
+          <div class="column is-two-thirds">
+            <h3>Supplementary Material</h3>
+            <p>The supplementary material for <strong>CelebGait</strong> is available as a PDF file.</p>
+            <a class="button is-link is-rounded"
+              href="./static/pdfs/celebgait_2026_mm_supplementary_material.pdf"
+              download="celebgait_2026_mm_supplementary_material.pdf">
+              <span class="icon"><i class="fas fa-download"></i></span>
+              <span>Download</span>
+            </a>
           </div>
         </div>
       </div>
