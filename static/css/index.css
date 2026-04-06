@@ -11,7 +11,7 @@
         linear-gradient(180deg, rgba(252, 252, 251, 0.66) 0%, rgba(247, 248, 246, 0.72) 100%),
         radial-gradient(circle at top left, rgba(17, 138, 178, 0.10), transparent 28%),
         radial-gradient(circle at top right, rgba(251, 191, 36, 0.12), transparent 26%),
-        url("../images/banner.png");
+        url("../images/optimized/banner.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -232,8 +232,16 @@
 
 .challenge-card img {
     display: block;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     cursor: zoom-in;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.content-figure-image {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .challenge-card img:hover,

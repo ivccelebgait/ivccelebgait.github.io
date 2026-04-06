@@ -26,8 +26,8 @@
             <span class="is-size-6 publication-venue">Under Review</span>
 
             <div class="publication-title-row">
-              <img class="publication-logo publication-logo-inline" src="./static/images/celebgait_logo.png"
-                alt="CelebGait logo" />
+              <img class="publication-logo publication-logo-inline" src="./static/images/optimized/celebgait_logo.png"
+                alt="CelebGait logo" width="320" height="314" fetchpriority="high" decoding="async" />
               <h1 class="title is-1 publication-title">CelebGait: An In-the-Wild Clothing-Changing Gait Benchmark</h1>
             </div>
             <div class="publication-author-grid">
@@ -194,15 +194,15 @@
             <h3>Dataset Statistics</h3>
             <p>The figures below summarize the dataset statistics and compare CelebGait to prior gait datasets.</p>
 
-            <img src="./static/images/dataset_compiration.png" alt="CelebGait dataset comparison"
-              style="width: 100%;" />
+            <img class="content-figure-image" src="./static/images/dataset_compiration.png"
+              alt="CelebGait dataset comparison" width="2241" height="576" loading="lazy" decoding="async" />
             <span>
               <center>Comparison between CelebGait and prior gait datasets in scale and variation.</center>
             </span>
             <br />
 
-            <img src="./static/images/dataset_information.png" alt="CelebGait dataset information"
-              style="width: 100%;" />
+            <img class="content-figure-image" src="./static/images/dataset_information.png"
+              alt="CelebGait dataset information" width="2186" height="531" loading="lazy" decoding="async" />
             <span>
               <center>Dataset statistics and distribution of identities and sequences in CelebGait.</center>
             </span>
@@ -216,7 +216,8 @@
             <h3>Data Processing</h3>
             <div class="data-processing-layout">
               <div class="data-processing-visual">
-                <img src="./static/images/data_collection_process.png" alt="CelebGait data processing pipeline" />
+                <img src="./static/images/data_collection_process.png" alt="CelebGait data processing pipeline"
+                  width="1019" height="1064" loading="lazy" decoding="async" />
               </div>
               <div class="data-processing-copy">
                 <p>The CelebGait pipeline combines automated preprocessing with careful manual verification to preserve both gait quality and identity consistency across videos.</p>
@@ -244,22 +245,26 @@
             <h3>Challenges in the Wild</h3>
             <div class="challenge-grid">
               <div class="challenge-card">
-                <img src="./static/images/cloth.jpg" alt="Clothing variation example" />
+                <img src="./static/images/optimized/cloth.jpg" data-full-src="./static/images/cloth.jpg"
+                  alt="Clothing variation example" width="9198" height="7511" loading="lazy" decoding="async" />
                 <h4>Clothing Variation</h4>
                 <p>Large apparel changes disrupt appearance cues and make identity matching more ambiguous.</p>
               </div>
               <div class="challenge-card">
-                <img src="./static/images/scene.jpeg" alt="Scene complexity example" />
+                <img src="./static/images/optimized/scene.jpeg" data-full-src="./static/images/scene.jpeg"
+                  alt="Scene complexity example" width="2219" height="1797" loading="lazy" decoding="async" />
                 <h4>Scene Complexity</h4>
                 <p>Background clutter, lighting changes, and real capture conditions increase visual interference.</p>
               </div>
               <div class="challenge-card">
-                <img src="./static/images/view.png" alt="Viewpoint variation example" />
+                <img src="./static/images/optimized/view.jpg" data-full-src="./static/images/view.png"
+                  alt="Viewpoint variation example" width="1184" height="912" loading="lazy" decoding="async" />
                 <h4>Viewpoint Diversity</h4>
                 <p>Cross-view matching remains difficult when motion dynamics and visible body regions shift together.</p>
               </div>
               <div class="challenge-card">
-                <img src="./static/images/motion.png" alt="Motion dynamics example" />
+                <img src="./static/images/optimized/motion.jpg" data-full-src="./static/images/motion.png"
+                  alt="Motion dynamics example" width="1184" height="864" loading="lazy" decoding="async" />
                 <h4>Motion Dynamics</h4>
                 <p>Unconstrained walking patterns and temporal changes further complicate robust gait modeling.</p>
               </div>

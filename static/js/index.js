@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const teaserImages = [
+  const teaserImageSources = [
     './static/images/examples_rgb/P0000005.jpg',
     './static/images/examples_rgb/P0000014.jpg',
     './static/images/examples_rgb/P0000054.jpg',
@@ -150,6 +150,11 @@ document.addEventListener('DOMContentLoaded', () => {
     './static/images/examples_rgb/P0004504.jpg'
   ];
 
+  const teaserImages = teaserImageSources.map((fullSrc) => ({
+    previewSrc: fullSrc,
+    thumbnailSrc: fullSrc.replace("/examples_rgb/", "/optimized/examples_rgb/")
+  }));
+
   const carousel = document.getElementById("teaser-example-carousel");
   const track = document.getElementById("teaser-carousel-track");
   const counter = document.getElementById("teaser-carousel-counter");
@@ -271,20 +276,22 @@ document.addEventListener('DOMContentLoaded', () => {
     page.setAttribute("role", "group");
     page.setAttribute("aria-label", `Carousel page ${pageIndex + 1}`);
 
-    pageImages.forEach((src, imageIndex) => {
+    pageImages.forEach((imageData, imageIndex) => {
       const card = document.createElement("div");
       card.className = "teaser-card";
 
       const img = document.createElement("img");
-      img.src = src;
+      img.src = imageData.thumbnailSrc;
       img.alt = `CelebGait teaser example ${pageIndex * pageSize + imageIndex + 1}`;
       img.loading = eager ? "eager" : "lazy";
       img.decoding = "async";
+      img.width = 800;
+      img.height = 600;
       if (eager) {
         img.fetchPriority = "high";
       }
 
-      attachPreviewTrigger(card, () => ({ src: img.src, alt: img.alt }), {
+      attachPreviewTrigger(card, () => ({ src: imageData.previewSrc, alt: img.alt }), {
         ariaLabel: `Open large preview for ${img.alt}`
       });
 
@@ -298,8 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const renderedPages = [pages[pages.length - 1], ...pages, pages[0]];
   renderedPages.forEach((pageImages, pageIndex) => {
     const realPageIndex = pageIndex === 0 ? pages.length - 1 : (pageIndex - 1) % pages.length;
-    const shouldEagerLoad =
-      pageIndex <= 2 || pageIndex >= renderedPages.length - 2;
+    const shouldEagerLoad = pageIndex <= 2;
     track.appendChild(createPage(pageImages, realPageIndex, shouldEagerLoad));
   });
 
@@ -316,27 +322,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  const setImagePriority = (img, eager) => {
+    img.loading = eager ? "eager" : "lazy";
+    if (eager) {
+      img.fetchPriority = "high";
+    } else {
+      img.removeAttribute("fetchpriority");
+    }
+  };
+
   const primeSlides = (slideIndex) => {
     const slideIndexesToPrime = new Set([
-      0,
-      1,
-      2,
-      renderedPages.length - 2,
-      renderedPages.length - 1,
       slideIndex - 1,
       slideIndex,
       slideIndex + 1
     ]);
 
-    slideIndexesToPrime.forEach((index) => {
-      const slide = track.children[index];
-      if (!slide) {
-        return;
-      }
-
+    Array.from(track.children).forEach((slide, index) => {
+      const eager = slideIndexesToPrime.has(index);
       slide.querySelectorAll("img").forEach((img) => {
-        img.loading = "eager";
-        img.fetchPriority = "high";
+        setImagePriority(img, eager);
       });
     });
   };
@@ -438,7 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
   carousel.addEventListener("focusout", startAutoplay);
 
   document.querySelectorAll(".challenge-card img").forEach((img) => {
-    attachPreviewTrigger(img, () => ({ src: img.src, alt: img.alt }), {
+    attachPreviewTrigger(img, () => ({ src: img.dataset.fullSrc || img.src, alt: img.alt }), {
       hoverDelay: 3000,
       ariaLabel: `Open large preview for ${img.alt}`
     });
