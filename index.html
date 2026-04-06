@@ -139,26 +139,31 @@
 
       <div class="content">
         <div class="columns is-centered">
-          <div class="column is-four-fifths">
-            <h3>Teaser</h3>
-            <p><strong>CelebGait</strong> captures large appearance shifts caused by clothing changes together with
-              substantial variation in scene, viewpoint, and motion dynamics. The examples below highlight why
-              real-world gait recognition remains challenging beyond controlled benchmarks.</p>
-            <div class="teaser-grid">
-              <img src="./static/images/P0000019_V0000001_00000001.jpg" alt="CelebGait teaser sample 1" />
-              <img src="./static/images/P0000019_V0000001_00000007.jpg" alt="CelebGait teaser sample 2" />
-              <img src="./static/images/P0000059_V0000001_00000001.jpg" alt="CelebGait teaser sample 3" />
-              <img src="./static/images/P0000059_V0000002_00000008.jpg" alt="CelebGait teaser sample 4" />
-              <img src="./static/images/P0002518_V0000001_00000002.jpg" alt="CelebGait teaser sample 5" />
-              <img src="./static/images/P0003086_V0000005_00000016.jpg" alt="CelebGait teaser sample 6" />
+          <div class="column">
+            <div class="teaser-copy">
+              <h3>Abstract</h3>
+              <p>
+                Gait recognition identifies individuals through their walking patterns and body shape, offering advantages such as long-range and non-contact sensing. However, existing gait datasets are mostly collected in controlled environments and rarely reflect the clothing variations and complex scene changes encountered in real-world applications. To facilitate research under more practical settings, we present <strong>CelebGait</strong>, a large-scale, in-the-wild clothing-changing gait benchmark containing <strong>4,500 identities</strong> and <strong>21,299 sequences</strong>, with substantial variations in clothing, scene, viewpoint, and motion dynamics. Extensive evaluations show that the performance of existing gait recognition methods drops notably on <strong>CelebGait</strong>, highlighting the critical bottleneck of clothing interference in unconstrained environments. 
+                <!-- To tackle the specific challenges introduced by <strong>CelebGait</strong>, we further establish <strong>GaitUniFormer</strong> as a tailored multimodal baseline. Instead of treating modalities independently, <strong>GaitUniFormer</strong> employs a unified transformer-style architecture to achieve fine-grained cross-modal interaction between silhouettes and pose heatmaps. By explicitly anchoring silhouette-based appearance features with stable pose-aware structural dynamics, this baseline effectively mitigates the severe visual interference caused by diverse clothing. Experimental results on <strong>CelebGait</strong> show that <strong>GaitUniFormer</strong> provides a robust reference among existing silhouette-based, pose-based, and multimodal approaches, demonstrating the necessity of deep multimodal integration for real-world clothing-changing gait recognition. -->
+              </p>
             </div>
-            <p class="section-caption">Representative sequences from different identities, outfits, viewpoints, and
-              environments in CelebGait.</p>
+            <div class="teaser-carousel carousel" id="teaser-example-carousel" aria-label="CelebGait teaser examples">
+              <button class="carousel-btn prev" type="button" aria-label="Previous page">&#10094;</button>
+              <div class="carousel-frame teaser-carousel-frame">
+                <div class="teaser-carousel-track" id="teaser-carousel-track"></div>
+              </div>
+              <button class="carousel-btn next" type="button" aria-label="Next page">&#10095;</button>
+            </div>
+            <div class="carousel-meta">
+              <span id="teaser-carousel-counter">1 / 1</span>
+            </div>
+            <p class="section-caption teaser-caption">Representative sequences from different identities, outfits,
+              viewpoints, and environments in CelebGait.</p>
           </div>
         </div>
       </div>
 
-      <div class="content">
+      <!-- <div class="content">
         <div class="columns is-centered">
           <div class="column is-four-fifths">
             <h3>Why CelebGait Matters</h3>
@@ -181,13 +186,26 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <div class="content has-text-justified">
-            <h3>Abstract</h3>
-            <p>Gait recognition identifies individuals through their walking patterns and body shape, offering advantages such as long-range and non-contact sensing. However, existing gait datasets are mostly collected in controlled environments and rarely reflect the clothing variations and complex scene changes encountered in real-world applications. To facilitate research under more practical settings, we present <strong>CelebGait</strong>, a large-scale, in-the-wild clothing-changing gait benchmark containing <strong>4,500 identities</strong> and <strong>21,299 sequences</strong>, with substantial variations in clothing, scene, viewpoint, and motion dynamics. Extensive evaluations show that the performance of existing gait recognition methods drops notably on <strong>CelebGait</strong>, highlighting the critical bottleneck of clothing interference in unconstrained environments. To tackle the specific challenges introduced by <strong>CelebGait</strong>, we further establish <strong>GaitUniFormer</strong> as a tailored multimodal baseline. Instead of treating modalities independently, <strong>GaitUniFormer</strong> employs a unified transformer-style architecture to achieve fine-grained cross-modal interaction between silhouettes and pose heatmaps. By explicitly anchoring silhouette-based appearance features with stable pose-aware structural dynamics, this baseline effectively mitigates the severe visual interference caused by diverse clothing. Experimental results on <strong>CelebGait</strong> show that <strong>GaitUniFormer</strong> provides a robust reference among existing silhouette-based, pose-based, and multimodal approaches, demonstrating the necessity of deep multimodal integration for real-world clothing-changing gait recognition.</p>
+      <div class="content">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <h3>Dataset Statistics</h3>
+            <p>The figures below summarize the dataset statistics and compare CelebGait to prior gait datasets.</p>
+
+            <img src="./static/images/dataset_compiration.png" alt="CelebGait dataset comparison"
+              style="width: 100%;" />
+            <span>
+              <center>Comparison between CelebGait and prior gait datasets in scale and variation.</center>
+            </span>
+            <br />
+
+            <img src="./static/images/dataset_information.png" alt="CelebGait dataset information"
+              style="width: 100%;" />
+            <span>
+              <center>Dataset statistics and distribution of identities and sequences in CelebGait.</center>
+            </span>
           </div>
         </div>
       </div>
@@ -195,24 +213,27 @@
       <div class="content">
         <div class="columns is-centered">
           <div class="column is-four-fifths">
-            <h3>Dataset Overview</h3>
-            <p>CelebGait is an in-the-wild clothing-changing gait benchmark with 4,500 identities and 21,299 sequences.
-              It features substantial variation in clothing, scene, viewpoint, and motion dynamics, making it a
-              challenging testbed for clothing-invariant gait recognition. The figures below summarize the dataset
-              statistics and compare CelebGait to prior gait datasets.</p>
-
-            <img src="./static/images/dataset_information.png" alt="CelebGait dataset information"
-              style="width: 100%;" />
-            <span>
-              <center>Dataset statistics and distribution of identities and sequences in CelebGait.</center>
-            </span>
-            <br />
-
-            <img src="./static/images/dataset_compiration.png" alt="CelebGait dataset comparison"
-              style="width: 100%;" />
-            <span>
-              <center>Comparison between CelebGait and prior gait datasets in scale and variation.</center>
-            </span>
+            <h3>Data Processing</h3>
+            <div class="data-processing-layout">
+              <div class="data-processing-visual">
+                <img src="./static/images/data_collection_process.png" alt="CelebGait data processing pipeline" />
+              </div>
+              <div class="data-processing-copy">
+                <p>The CelebGait pipeline combines automated preprocessing with careful manual verification to preserve both gait quality and identity consistency across videos.</p>
+                <div class="data-processing-step">
+                  <h4>(1) Raw Sequence Acquisition</h4>
+                  <p>Usable gait sequences are obtained through video filtering, pedestrian extraction, and frame filtering, removing irrelevant videos and low-quality frames early.</p>
+                </div>
+                <div class="data-processing-step">
+                  <h4>(2) Expected Identity Selection Within Each Video</h4>
+                  <p>The target celebrity is then selected within each video using title cues and visual evidence, while non-walking and incorrectly tracked segments are cleaned out.</p>
+                </div>
+                <div class="data-processing-step">
+                  <h4>(3) Cross-Video Identity Consistency</h4>
+                  <p>Finally, identities are checked across videos to keep the same person consistent under clothing, viewpoint, and scene changes through repeated manual verification.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -223,46 +244,25 @@
             <h3>Challenges in the Wild</h3>
             <div class="challenge-grid">
               <div class="challenge-card">
-                <img src="./static/images/P0000019_V0000001_00000012.jpg" alt="Clothing variation example" />
+                <img src="./static/images/cloth.jpg" alt="Clothing variation example" />
                 <h4>Clothing Variation</h4>
                 <p>Large apparel changes disrupt appearance cues and make identity matching more ambiguous.</p>
               </div>
               <div class="challenge-card">
-                <img src="./static/images/P0000059_V0000002_00000003.jpg" alt="Scene complexity example" />
+                <img src="./static/images/scene.jpeg" alt="Scene complexity example" />
                 <h4>Scene Complexity</h4>
                 <p>Background clutter, lighting changes, and real capture conditions increase visual interference.</p>
               </div>
               <div class="challenge-card">
-                <img src="./static/images/P0002518_V0000003_00000175.jpg" alt="Viewpoint variation example" />
+                <img src="./static/images/view.png" alt="Viewpoint variation example" />
                 <h4>Viewpoint Diversity</h4>
                 <p>Cross-view matching remains difficult when motion dynamics and visible body regions shift together.</p>
               </div>
               <div class="challenge-card">
-                <img src="./static/images/P0003086_V0000004_00000002.jpg" alt="Motion dynamics example" />
+                <img src="./static/images/motion.png" alt="Motion dynamics example" />
                 <h4>Motion Dynamics</h4>
                 <p>Unconstrained walking patterns and temporal changes further complicate robust gait modeling.</p>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="content">
-        <div class="columns is-centered">
-          <div class="column is-four-fifths">
-            <h3>Dataset Visualization</h3>
-            <p>Browse additional examples from CelebGait. The carousel below illustrates the diversity of subjects,
-              clothing styles, and capture conditions represented in the benchmark.</p>
-            <div class="carousel" id="celebgait-carousel">
-              <button class="carousel-btn prev" type="button" aria-label="Previous image">&#10094;</button>
-              <div class="carousel-frame">
-                <img id="celebgait-carousel-image" src="./static/images/P0000019_V0000001_00000001.jpg"
-                  alt="CelebGait dataset example" />
-              </div>
-              <button class="carousel-btn next" type="button" aria-label="Next image">&#10095;</button>
-            </div>
-            <div class="carousel-meta">
-              <span id="celebgait-carousel-counter">1 / 14</span>
             </div>
           </div>
         </div>

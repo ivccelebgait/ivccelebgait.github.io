@@ -4,6 +4,7 @@
 
 Unlike traditional gait datasets collected in controlled environments, CelebGait focuses on **real-world unconstrained scenarios**. It captures the practical challenges that strongly affect gait recognition systems, including clothing variation, background complexity, viewpoint changes, non-periodic walking behaviors, and scene diversity.
 
+CelebGait Website is at https://ivccelebgait.github.io
 ---
 
 ## Overview
@@ -20,7 +21,7 @@ CelebGait contains:
 Each identity is associated with multiple walking sequences collected from public online videos. On average, each identity contains **4.7 sequences**, and each sequence has an average length of **122 frames**.
 
 In addition to silhouette sequences, CelebGait provides synchronized **2D pose** and **3D pose-related annotations** to support silhouette-based, pose-based, and multimodal gait recognition research.
-
+∑œ∂
 ---
 
 ## Why CelebGait?
